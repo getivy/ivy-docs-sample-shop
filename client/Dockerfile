@@ -1,5 +1,5 @@
 # Base image
-FROM node:14
+FROM node:20-alpine
 
 # Set working directory
 WORKDIR /app
@@ -14,4 +14,4 @@ RUN npm install
 COPY . .
 
 # Start the client
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "dev"]
