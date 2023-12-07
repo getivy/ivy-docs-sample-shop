@@ -1,11 +1,11 @@
 {
-  "name": "sample-node-server",
+  "name": "ivy-sample-node-server",
   "version": "1.0.0",
   "description": "Node.js server for Ivy API integration",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "tsc && nodemon -L"
+    "start": "yarn build && nodemon -L"
   },
   "dependencies": {
     "axios": "^0.24.0",

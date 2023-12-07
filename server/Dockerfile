@@ -14,4 +14,4 @@ RUN npm install
 COPY . .
 
 # Start the client
-CMD ["npm", "run", "start"]
+CMD ["yarn", "start"]

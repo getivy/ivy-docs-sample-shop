@@ -10,7 +10,7 @@ The application allows users to play around and see how you can setup the Ivy AP
 To install the dependencies for this project, navigate to both the `client` and `server` directories in your terminal and run:
 
 ```bash
-npm install
+yarn
 ```
 
 ## Running the Application
@@ -18,13 +18,13 @@ npm install
 To start the client, navigate to the client directory in your terminal and run:
 
 ```bash
-npm run dev
+yarn dev
 ```
 
 To start the server, navigate to the server directory in your terminal and run:
 
 ```bash
-npm run start
+yarn start
 ```
 
 ### Docker
