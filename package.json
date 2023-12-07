@@ -1,0 +1,9 @@
+{
+  "name": "ivy-docs-sample-shop",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "docker-compose up --build -d",
+    "up": "docker-compose up -d",
+    "down": "docker-compose down"
+  }
+}
