@@ -18,9 +18,9 @@ const CONFIG = {
 
 const app = express();
 
-app.use(cors()); // Enable CORS
+app.use(cors());
 
-app.use(express.json()); // Enable JSON body parsing
+app.use(express.json());
 
 app.use(express.static("public"));
 
