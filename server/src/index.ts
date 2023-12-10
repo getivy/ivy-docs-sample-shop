@@ -1,9 +1,7 @@
 import axios from "axios";
 import cors from "cors";
-import dotenv from "dotenv";
+import morgan from "morgan";
 import express, { Request, Response } from "express";
-
-dotenv.config();
 
 const IVY_API_URL = process.env.IVY_API_URL;
 const PORT = process.env.PORT;
@@ -19,6 +17,8 @@ const CONFIG = {
 const app = express();
 
 app.use(cors());
+
+app.use(morgan("dev"));
 
 app.use(express.json());
 
@@ -50,6 +50,7 @@ app.post("/checkout/create", async (req: Request, res: Response) => {
       ivyCheckoutUrl: response.data.redirectUrl,
     });
   } catch (error) {
+    console.error(error);
     res.status(500).send("Failed to create Ivy checkout session");
   }
 });

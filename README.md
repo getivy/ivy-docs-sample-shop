@@ -32,13 +32,18 @@ yarn start
 This project includes a docker-compose.yml file that allows you to run the client and server in Docker containers. To start the containers, run:
 
 ```bash
-make up
+docker-compose up
 ```
 
 ## Environment Variables
 
 This project uses the following environment variables:
 
-IVY_API_URL: The URL of the Ivy API.
-PORT: The port the server should run on.
-IVY_API_KEY: The API key for the Ivy API.
+`IVY_API_URL`: The URL of the Ivy API. <br>
+`PORT`: The port the server should run on. <br>
+`IVY_API_KEY`: The API key for the Ivy API.
+
+Make sure to have a merchant correctly created to obtain your environment vars. [Contact Us](mailto:developer@getivy.io?subject=Merchant%20Dashboard%20Access) if needed
+
+## Docs
+For more information, see our Docs at https://docs.getivy.de/
