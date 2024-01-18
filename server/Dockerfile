@@ -10,8 +10,8 @@ COPY package*.json ./
 # Install dependencies
 RUN yarn
 
-# Copy the rest of the client code
+# Copy the rest of the server code
 COPY . .
 
-# Start the client
+# Start the server
 CMD ["yarn", "start"]
