@@ -1,27 +1,47 @@
-# React + TypeScript + Vite
+# Ivy Sample Shop Client
+This is the client side of the Ivy Sample Shop application. It is built with React, TypeScript, and Vite.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Installation
+Before you start, make sure you have Node.js and Yarn installed on your machine.
 
-Currently, two official plugins are available:
+To install the dependencies for the client, navigate to the client directory in your terminal and run:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+``` bash
+yarn
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Running the Application
+To start the client, navigate to the client directory in your terminal and run:
+
+``` bash
+yarn dev
+```
+
+The client will start and by default it will be available at http://localhost:5173.
+
+## Building the Application
+To build the client for production, run:
+
+``` bash
+yarn build
+```
+
+build
+This will create a `dist` directory with the built assets.
+
+## Docker
+This project includes a Dockerfile that allows you to run the client in a Docker container. To build and start the container, navigate to the client directory in your terminal and run:
+
+``` bash
+docker build -t ivy-client-sample .
+docker run -p 5173:5173 ivy-client-sample
+```
+
+## Linting
+To lint the code, run:
+
+``` bash
+yarn lint
+```
+
+This will run ESLint on the TypeScript files in the project.
