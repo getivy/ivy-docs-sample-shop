@@ -1,7 +1,10 @@
 import axios from "axios";
 import cors from "cors";
-import morgan from "morgan";
+import dotenv from "dotenv";
 import express, { Request, Response } from "express";
+import morgan from "morgan";
+
+dotenv.config();
 
 const IVY_API_URL = process.env.IVY_API_URL;
 const PORT = process.env.PORT;
