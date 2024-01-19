@@ -3,3 +3,60 @@
   margin: 0 auto;
   padding: 2rem;
 }
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Work Sans', sans-serif;
+}
+
+button.primary {
+  background-color: #121315;
+  color: #FFFFFF;
+  border-radius: 52px;
+  padding: 12px;
+  min-width: 160px;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  border-width: 0px;
+}
+
+button.primary:hover {
+  cursor: pointer;
+  background-color: #333;
+}
+
+button.primary:active {
+  transform: scale(0.98);
+  background-color: #333;
+}
+
+.tab-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+
+.tab {
+  background-color: transparent;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #000;
+  font-weight: 600;
+}
+
+.tab:hover {
+  color: #777;
+}
+
+.active {
+  color: #4CAF50;
+}

@@ -9,6 +9,7 @@ dotenv.config();
 const IVY_API_URL = process.env.IVY_API_URL;
 const PORT = process.env.PORT;
 const IVY_API_KEY = process.env.IVY_API_KEY ?? "secret";
+const MERCHANT_APP_ID = process.env.MERCHANT_APP_ID;
 
 const CONFIG = {
   headers: {
@@ -27,7 +28,7 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-app.post("/checkout/create", async (req: Request, res: Response) => {
+app.post("/checkout", async (req: Request, res: Response) => {
   try {
     const price = req.body?.price;
 
@@ -55,6 +56,61 @@ app.post("/checkout/create", async (req: Request, res: Response) => {
   } catch (error) {
     console.error(error);
     res.status(500).send("Failed to create Ivy checkout session");
+  }
+});
+
+app.delete(
+  "/webhook-subscription/:hookId",
+  async (req: Request, res: Response) => {
+    const hookId = req.params.hookId;
+    try {
+      if (!hookId) {
+        res.status(400).send("No hookId provided");
+        return;
+      }
+
+      const response = await axios.post(
+        `${IVY_API_URL}/webhook-subscription/delete`,
+        {
+          id: hookId,
+        },
+        CONFIG
+      );
+
+      res.status(response.status).end();
+    } catch (error) {
+      console.error(error);
+      res.status(500).send(`Failed to delete webhook with id ${hookId}`);
+    }
+  }
+);
+
+app.post("/webhook-subscription", async (req: Request, res: Response) => {
+  const url = req.body.url;
+  const eventType = req.body.eventType;
+
+  try {
+    if (!url || !eventType) {
+      res.status(400).send("No url and/or eventType provided");
+      return;
+    }
+
+    const response = await axios.post(
+      `${IVY_API_URL}/webhook-subscription/create`,
+      {
+        url: url,
+        events: [eventType],
+        merchantAppId: MERCHANT_APP_ID,
+      },
+      CONFIG
+    );
+
+    res.status(response.status).send(response.statusText);
+  } catch (error) {
+    console.error(error);
+    res
+      .status(500)
+      .send(`Failed to create webhook of type ${eventType} for url ${url}`);
   }
 });
 
